@@ -1,0 +1,24 @@
+***Chapter 2 - Creating Django Apps***
+Starting a new project in Django
+    - When creating a new app use this command in the directory the app's folder
+      should go -->
+        - "django-admin startproject [project_name]
+Creating a Django App in a Porject
+    - When setting up separate primary pages or functions of a web app, django 
+      creates what are called "apps". This creates a folder with the desired name
+      and contains all the basic Django elements -->
+        - "django-admin startapp [app_name]
+Setting up URLs in your Django Project
+    - THE FIRST THING to do, is to add a URL pathway inside the "urls.py" module
+      for the main project "app" folder
+    - This can come in the form of a simple reference to the specific view we'd 
+      like to reach given some URL input.
+    - In urls.py, add the URL pathway in the "urlpatterns" object already there -->
+        - #  urlpatterns = [
+          #     path('[url_string]', views.chris, name='[urlshortcut_string]')
+          #  ]
+    - IF THE VIEW is intended to be a publicly reachable module for a page, edit
+      the app's "views.py" file to import Django's HTTP response module -->
+        - from [django.http] import [HttpResponse]
+    
+  
