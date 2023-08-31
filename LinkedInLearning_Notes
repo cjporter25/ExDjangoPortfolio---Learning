@@ -20,5 +20,45 @@ Setting up URLs in your Django Project
     - IF THE VIEW is intended to be a publicly reachable module for a page, edit
       the app's "views.py" file to import Django's HTTP response module -->
         - from [django.http] import [HttpResponse]
-    
+
+***Chapter 3 - Django and Databases***
+Creating the Models in Django
+    - For any given app that's created, Django creates a "models.py" file. This
+      file will contain the classes/data that you intend to store in the database
+      and/or output eventually to a webpage.
+    - It is best practice to initially create a class representative of the app itself,
+      or in other words, create a class named the same thing as the app. -->
+        - class [model_name](model.Models)
+    - Inside Django models, you can establish properties of that model, i.e., images,
+      names, text, values, etc. -->
+        - [image_var] = models.ImageField(upload_to='images/')
+        - [string_var] = models.CharField(max_length=200)
+Postgres Setup for Django
+    - Go to the PostgreSQL website and download the Windows version. Go through the
+      installation process (the default location should be fine).
+    - Three things to look out for -->
+        - PostgreSQL SuperUser Password: [last_four_phone_digits]
+        - Port Number: Default is [5432]
+        - Database Locale: Specify [english_united_states] or something close
+    - Using Postgres from the CLI of Windows: After installation, navigate over to
+      the system's environment variables. Select "Path", and click "edit". The next
+      window should show a variety of paths previously created. Create a "new" path
+      and add the path for the "bin" folder of the Postgres installation -->
+        - [Example] C:\Program Files\PostgreSQL\15\bin\
+    - Accessing Postgres from the CLI: Once the path is setup, the user can initiate
+      postgres by using the command -->
+        - "psql -U postgres"
+        - NOTE: This will then prompt the user for the superuser password which
+          was created during installation. Once entered, the CLI should show something
+          like -->
+        - [Example]: postgres=#
+    - Creating a new Database: Once in the postgres CLI, use the following command,
+      followed by the name you'd like to give to the database, followed by a
+      semicolon -->
+        - CREATE DATABASE [db_name];
+    - Viewing the New Database in the Postgres Admin Console: To view the databases 
+      on the machine, launch the provided pgAdmin4 application. In the beginning
+      there should only be two databases, the default "postgres" database on the newly
+      made one called "portfoliodb"
   
+      
