@@ -60,5 +60,47 @@ Postgres Setup for Django
       on the machine, launch the provided pgAdmin4 application. In the beginning
       there should only be two databases, the default "postgres" database on the newly
       made one called "portfoliodb"
+Connecting Postgress to Django
+    - Navigate to the DATABASES dictionary in "settings.py". Since we're working 
+      with a psotgres database, we must change the engine source -->
+        - 'ENGINE': ['django.db.backends.postgresql']
+    - Edit the NAME attribute to the name of the database created earlier, i.e.,
+      "NAME" should now equal portfoliodb or -->
+        - 'NAME': ['portfoliodb']
+    - Add new attributes and their associated values -->
+        - 'USER': ['postgres']
+        - 'PASSWORD': ['****']
+        - 'HOST': 'localhost'
+        - 'PORT': '5432'
+        - **NOTE** Fun fact, localhost:8000 is the same as 127.0.0.1:8000
+  FIRST SERVER RUN AFTER EDITING DATABASE ATTRIBUTES
+        - There should be an error stating that they cannot load the psycopg2 module.
+          To fix this, use the following command -->
+          - ['pip3 install psycopg2'] in the local project directory
+Making Django Migrations and Migrating
+    - Start with the command -->
+        - "python manage.py makemigrations"
+    - When to run the make migrations command?
+        - Whenever a new model is made or changed.
+    - What does it do?
+        - Creates a migrations folder if it wasn't already present. Next, a new python
+          file called something like [0001_initial.py] will show up in that folder.
+    - Once that is done, we can finally tell Django to solidify those migrations our
+      database. Using the command -->
+        - "python manage.py migrate"
+    - Everything that needed to be migrated will now be confirmed and added.
+
+Setting up the Admin Panel in Django
+    - How to reach the admin console?
+        - python manage.py runserver
+        - Use the URL: localhost:8000/admin
+            - This will prompt a login
+    - Creating a SuperUser for the Admin consolde. Use the following command -->
+        - "python manage.py createsuperuser"
+        - It will ask for a preferred username --> [chris]
+        - It will ask for a preferred e-mail --> [blank]
+        - It will ask for a preferred password --> [****]
+    - While the server is running, you can now login to the admin console using those
+      credentials.
   
       
