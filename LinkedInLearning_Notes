@@ -102,5 +102,14 @@ Setting up the Admin Panel in Django
         - It will ask for a preferred password --> [****]
     - While the server is running, you can now login to the admin console using those
       credentials.
+    - Registering New Models so they're Visible to Admin
+        - Navigate to the "admin.py" file in whatever app has the new model.
+        - At the top, add an import statement that imports the class made in models.py
+            - from .models import [class_name]
+        - Then, simply add the following statement in the body of the admin module -->
+            - admin.site.register([class_name])
+
+Creating Model Objects via the Admin Panel in Django
+    - 
   
       
